@@ -2,11 +2,25 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
+      <router-link to="/miniature/login">Login</router-link> |
+      <router-link to="/miniature/signup">Sign Up</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+      <router-view/>
+    
   </div>
 </template>
+
+<style scoped>
+  #nav{
+    background-image: linear-gradient(to bottom right ,#0eac8c, #2a7aaf);
+    color: #fff;
+  }
+  #nav a{
+    color: #fff;
+    text-decoration: none;
+  }
+</style>
 
 <style>
 #app {
@@ -26,6 +40,6 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #591e70;
 }
 </style>
