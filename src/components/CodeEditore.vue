@@ -6,6 +6,13 @@
         </header>
         <form>
             <input  class="title" type="text" name="title" v-model="codetitle" placeholder="Enter Title"><br>
+
+            <div v-if="error" class="error">
+                <p v-for="error in errMessages" :key="error.id">
+                    {{error.error}}
+                </p>
+            </div><br>
+
             <textarea v-model="codecontent" rows="10" cols="40"></textarea><br>
             <input class="mbtn" type="submit" value="Send Code" @click.prevent="sendInfo()">
         </form>
@@ -18,6 +25,8 @@ export default {
         return{
             codetitle:"",
             codecontent:"",
+            error:false,
+            errMessages:[],
             //username and password are here
             userdata:{}
         }
@@ -37,12 +46,16 @@ export default {
                         alert("your code was sent");
                         this.codetitle = "";
                         this.codecontent = "";
+
+                        this.error = false
                     }else{
                         console.log(response.body)
+                        this.error = true;
+                        this.errMessages = response.body.errors;
                     }
                 });
             }else{
-                alert("please fill in title and enter your code!")
+                alert("please fill in title or codearea and send your code!")
             }
         }
     },
@@ -67,6 +80,15 @@ export default {
         margin-bottom: 10px;
         padding: 5px;
         text-align: center;
+        border-radius: 4px;
+    }
+    main form .error{
+        background-color: rgb(236, 91, 91);
+        color: #fff;
+        width: 60%;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 4px;
     }
     textarea {
         background-image: linear-gradient(rgb(238, 236, 236) 50%, #92fabe 50%);

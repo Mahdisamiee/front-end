@@ -40,7 +40,7 @@ export default {
         fetchData(){
             console.log("here is before send response")
             console.log(this.userdata.username+" hello " + this.userdata.password)
-            this.$http.get("http://localhost:8000/miniature/getanswer/"+this.userdata.username+"/"+this.userdata.password+"/"+this.$route.params.id)
+            this.$http.get("http://192.168.1.10:8000/miniature/getanswer/"+this.userdata.username+"/"+this.userdata.password+"/"+this.$route.params.id)
                 .then((response)=>{
                     //here we get some data that i don't know them
                     console.log(response)

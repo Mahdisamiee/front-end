@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="data in maindata">
+                <tr v-for="data in maindata" :key="data.id">
                     <td>{{data.id}}</td>
                     <td>{{data.title}}</td>
                     <td>{{data.code}}</td>
@@ -39,7 +39,7 @@ export default {
             maindata:[],
             status:"",
             msg:"",
-            answer:"click on show to see the answer of the code",
+            answer:"click on 'show' to see the answer of that code",
             //the information about username and password that we need them by send and get request
             userdata:{},
             myfalse:false,
