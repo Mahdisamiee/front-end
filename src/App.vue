@@ -6,9 +6,9 @@
       <router-link to="/miniature/signup">Sign Up</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    
+    <transition name="myanime">
       <router-view/>
-    
+    </transition>
   </div>
 </template>
 
@@ -43,4 +43,6 @@
 #nav a.router-link-exact-active {
   color: #591e70;
 }
+
+
 </style>

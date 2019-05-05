@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="page">
         <header>
             <h1>Send Code</h1>
             <router-link :to="{ name: 'alluploads' , query: { userdata:this.userdata }}">back to Uploads</router-link>
@@ -121,5 +121,5 @@ export default {
         color: #2980b9;
         box-shadow: 3px 3px 5px #333;
     }
-    
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="page">
         <h1>All Uploads</h1>
         
         <table class="table table-striped">
@@ -7,7 +7,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Title</th>
-                    <th>Code</th>
+                    <!--<th>Code</th>-->
                     <th><router-link class="btn btn-success" :to="{ name: 'codeeditor' , query: { userdata:this.userdata }}">+</router-link></th>
                 </tr>
             </thead>
@@ -15,16 +15,24 @@
                 <tr v-for="data in maindata" :key="data.id">
                     <td>{{data.id}}</td>
                     <td>{{data.title}}</td>
-                    <td>{{data.code}}</td>
+                    <!--<td>{{data.code}}</td>-->
                     <td><button class="btn btn success" @click="showbtnfunc(data.id)">{{btnvalue}}</button></td>
                 </tr>
             </tbody>
         </table>
         
-        <div class="answer">
-            <h2>Answer</h2>
-            <textarea v-model="answer" rows="10" cols="40"></textarea><br>
+        <div class="codeanswer">
+            <div class="code">
+                <h2>Code</h2>
+            <textarea v-model="answercode" rows="10" cols="20"></textarea><br>
+            </div>
+
+            <div class="answer">
+                <h2>Answer</h2>
+                <textarea v-model="answer" rows="10" cols="20"></textarea><br>
+            </div>
         </div>
+        
 
     </main>
 </template>
@@ -40,6 +48,7 @@ export default {
             status:"",
             msg:"",
             answer:"click on 'show' to see the answer of that code",
+            answercode :"",
             //the information about username and password that we need them by send and get request
             userdata:{},
             myfalse:false,
@@ -68,6 +77,9 @@ export default {
                     console.log(response.status)
                     if(response.body.status == 200){
                         this.answer = response.body.answer.answer
+                        console.log(response.body.code)
+                        this.answercode = response.body.code.code
+                        
                     }else{
                         console.log(id)
                         console.log(response.body)
@@ -89,12 +101,22 @@ export default {
 </script>
 
 <style scoped>
+    h1{
+        margin: 20px;
+    }
     .btn{
         padding: 0 10px;
         font-size: 24px;
     }
+    .codeanswer{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+    }
+    .code{
+        padding: 50px;
+    }
     .answer{
-        margin: 20px;
         padding: 50px;
     }
     textarea {
@@ -105,9 +127,10 @@ export default {
         max-width: 800px;
         height: 400px;
         line-height: 2rem;
-        margin: 0 auto;
         padding: 4px 8px;
         resize: none;
         color: #777;
+        border-radius: 3px;
     }
+
 </style>

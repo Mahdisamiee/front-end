@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="main page">
         <div class="logo">
             <h1>Miniature</h1>
             <img src="../assets/logo2.png" alt="logo">
@@ -34,4 +34,5 @@ export default {
     .main .logo p span a:hover{
         color: #0eac8c;
     }
+
 </style>

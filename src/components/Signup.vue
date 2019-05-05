@@ -1,5 +1,5 @@
 <template>
-    <div id="signup">
+    <div class="page" id="signup">
         <!--Header of this site-->
 
         <!--Main form for Sign up-->
@@ -148,5 +148,7 @@ export default {
 .main a:hover{
     color: #fff;
 }
+
+
 </style>
 

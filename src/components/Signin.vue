@@ -1,5 +1,5 @@
 <template>
-    <div id="signup">
+    <div class="page" id="signup">
         <!--Header of this site-->
 
         <!--Main form for Sign up-->
@@ -43,7 +43,7 @@ export default {
                     password : this.data.password
                 }).then(response=> {
                     if(response.body.status == 200){
-                        console.log(response.body)
+                        console.log(response)
                         this.$router.push({path:"/miniature/alluploads", query:{userdata:this.data}})
                     }else if(response.body.status != 200){
                         console.log(response.body)
@@ -146,5 +146,7 @@ export default {
 .main a:hover{
     color: #fff;
 }
+
+
 </style>
 
